@@ -1,10 +1,17 @@
 <!doctype html>
 <html>
-    <head>
-        <title>Hello</title>
-    </head>
-    <body>
-        <h1>Hello, {{ name }}!</h1>
-        <a href="/form">Go to Form</a>
-    </body>
+<head>
+    <title>Home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/map">Map</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+    </nav>
+    <h1>Welcome to the Home Page</h1>
+    <p>Explore our site using the navigation bar above.</p>
+</body>
 </html>
