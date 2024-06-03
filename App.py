@@ -14,6 +14,7 @@ def map():
         </head>
         <body>
             <iframe src="{map_url}" width="100%" height="600"></iframe>
+            <p>If the map does not load, please check the URL and ensure public access is enabled.</p>
         </body>
     </html>
     """)
