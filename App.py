@@ -1,22 +1,23 @@
-from flask import Flask, render_template
+from flask import Flask, render_template_string
 
 app = Flask(__name__)
 
 @app.route('/')
-def home():
-    return render_template('index.html')
-
-@app.route('/map')
 def map():
-    return render_template('Voronoi_Map.html')
-
-@app.route('/about')
-def about():
-    return render_template('about.html')
-
-@app.route('/contact')
-def contact():
-    return render_template('contact.html')
+    # Use the URL from your Azure Storage
+    map_url = "https://classificationmaps.blob.core.windows.net/feedersclassify/Classification_Map.html"
+    return render_template_string(f"""
+    <!doctype html>
+    <html>
+        <head>
+            <title>Map</title>
+        </head>
+        <body>
+            <iframe src="{map_url}" width="100%" height="600"></iframe>
+        </body>
+    </html>
+    """)
 
 if __name__ == '__main__':
     app.run(debug=True)
+
