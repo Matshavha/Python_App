@@ -4,8 +4,8 @@ app = Flask(__name__)
 
 @app.route('/')
 def map():
-    # Use the URL from your Azure Storage
-    map_url = "https://classificationmaps.blob.core.windows.net/feedersclassify/Classification_Map.html"
+    # Use the URL from your Azure Front Door
+    map_url = "https://network-a2b8aec3h5hqduh0.z02.azurefd.net/feedersclassify/Classification_Map.html"
     return render_template_string(f"""
     <!doctype html>
     <html>
@@ -20,4 +20,3 @@ def map():
 
 if __name__ == '__main__':
     app.run(debug=True)
-
