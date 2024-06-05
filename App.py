@@ -11,41 +11,44 @@ def home():
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <title>Home</title>
-            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
             <style>
                 body {
+                    font-family: Arial, sans-serif;
+                    margin: 0;
+                    padding: 0;
                     background-color: #f4f4f4;
+                }
+                nav ul {
+                    list-style: none;
+                    background-color: #333;
+                    padding: 10px;
+                    margin: 0;
+                    text-align: center;
+                }
+                nav ul li {
+                    display: inline;
+                    margin-right: 10px;
+                }
+                nav ul li a {
+                    color: white;
+                    text-decoration: none;
                 }
                 .content {
                     padding: 20px;
                 }
-                .navbar-nav a {
-                    color: white !important;
-                }
             </style>
         </head>
         <body>
-            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                <a class="navbar-brand" href="/">Flask App</a>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="/">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/about">About</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/classification-map">Classification Map</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/prediction">Prediction</a>
-                        </li>
-                    </ul>
-                </div>
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/classification-map">Classification Map</a></li>
+                    <li><a href="/prediction">Prediction</a></li>
+                </ul>
             </nav>
-            <div class="container content">
-                <h1 class="mt-5">Welcome to the Home Page</h1>
+            <div class="content">
+                <h1>Welcome to the Home Page</h1>
                 <p>This is the home page of our Flask web application.</p>
             </div>
         </body>
@@ -61,41 +64,44 @@ def about():
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <title>About</title>
-            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
             <style>
                 body {
+                    font-family: Arial, sans-serif;
+                    margin: 0;
+                    padding: 0;
                     background-color: #f4f4f4;
+                }
+                nav ul {
+                    list-style: none;
+                    background-color: #333;
+                    padding: 10px;
+                    margin: 0;
+                    text-align: center;
+                }
+                nav ul li {
+                    display: inline;
+                    margin-right: 10px;
+                }
+                nav ul li a {
+                    color: white;
+                    text-decoration: none;
                 }
                 .content {
                     padding: 20px;
                 }
-                .navbar-nav a {
-                    color: white !important;
-                }
             </style>
         </head>
         <body>
-            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                <a class="navbar-brand" href="/">Flask App</a>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link" href="/">Home</a>
-                        </li>
-                        <li class="nav-item active">
-                            <a class="nav-link" href="/about">About</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/classification-map">Classification Map</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/prediction">Prediction</a>
-                        </li>
-                    </ul>
-                </div
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/classification-map">Classification Map</a></li>
+                    <li><a href="/prediction">Prediction</a></li>
+                </ul>
             </nav>
-            <div class="container content">
-                <h1 class="mt-5">About Us</h1>
+            <div class="content">
+                <h1>About Us</h1>
                 <p>This is the about page.</p>
             </div>
         </body>
@@ -111,16 +117,30 @@ def classification_map():
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <title>Classification Map</title>
-            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
             <style>
                 body {
+                    font-family: Arial, sans-serif;
+                    margin: 0;
+                    padding: 0;
                     background-color: #f4f4f4;
+                }
+                nav ul {
+                    list-style: none;
+                    background-color: #333;
+                    padding: 10px;
+                    margin: 0;
+                    text-align: center;
+                }
+                nav ul li {
+                    display: inline;
+                    margin-right: 10px;
+                }
+                nav ul li a {
+                    color: white;
+                    text-decoration: none;
                 }
                 .content {
                     padding: 20px;
-                }
-                .navbar-nav a {
-                    color: white !important;
                 }
                 .map-container {
                     width: 80%;
@@ -135,27 +155,16 @@ def classification_map():
             </style>
         </head>
         <body>
-            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                <a class="navbar-brand" href="/">Flask App</a>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link" href="/">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/about">About</a>
-                        </li>
-                        <li class="nav-item active">
-                            <a class="nav-link" href="/classification-map">Classification Map</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/prediction">Prediction</a>
-                        </li>
-                    </ul>
-                </div>
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/classification-map">Classification Map</a></li>
+                    <li><a href="/prediction">Prediction</a></li>
+                </ul>
             </nav>
-            <div class="container content">
-                <h1 class="mt-5">Classification Map</h1>
+            <div class="content">
+                <h1>Classification Map</h1>
                 <div class="map-container">
                     <iframe src="https://classify.azureedge.net/Feeders_Classification/Classification_Map.html" frameborder="0"></iframe>
                 </div>
@@ -173,41 +182,44 @@ def prediction():
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <title>Prediction</title>
-            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
             <style>
                 body {
+                    font-family: Arial, sans-serif;
+                    margin: 0;
+                    padding: 0;
                     background-color: #f4f4f4;
+                }
+                nav ul {
+                    list-style: none;
+                    background-color: #333;
+                    padding: 10px;
+                    margin: 0;
+                    text-align: center;
+                }
+                nav ul li {
+                    display: inline;
+                    margin-right: 10px;
+                }
+                nav ul li a {
+                    color: white;
+                    text-decoration: none;
                 }
                 .content {
                     padding: 20px;
                 }
-                .navbar-nav a {
-                    color: white !important;
-                }
             </style>
         </head>
         <body>
-            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                <a class="navbar-brand" href="/">Flask App</a>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link" href="/">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/about">About</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/classification-map">Classification Map</a>
-                        </li>
-                        <li class="nav-item active">
-                            <a class="nav-link" href="/prediction">Prediction</a>
-                        </li>
-                    </ul>
-                </div>
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/classification-map">Classification Map</a></li>
+                    <li><a href="/prediction">Prediction</a></li>
+                </ul>
             </nav>
-            <div class="container content">
-                <h1 class="mt-5">Prediction</h1>
+            <div class="content">
+                <h1>Prediction</h1>
                 <p>This is the prediction page.</p>
             </div>
         </body>
@@ -216,3 +228,4 @@ def prediction():
 
 if __name__ == '__main__':
     app.run(debug=True)
+
