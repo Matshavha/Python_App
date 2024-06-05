@@ -1,218 +1,35 @@
-from flask import Flask, render_template_string
+from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return render_template_string('''
-        <!DOCTYPE html>
-        <html lang="en">
-        <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Eskom Dx_Pricing</title>
-            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-            <style>
-                body {
-                    background-color: #f4f4f4;
-                }
-                .content {
-                    padding: 20px;
-                }
-                .navbar-nav a {
-                    color: white !important;
-                }
-            </style>
-        </head>
-        <body>
-            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                <a class="navbar-brand" href="/">Eskom Dx_Pricing</a>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="/">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/about">About</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/classification-map">Classification Map</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/prediction">Prediction</a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-            <div class="container content">
-                <h1 class="mt-5">Welcome to the Home Page</h1>
-                <p>This is the home page of Eskom Dx_Pricing.</p>
-            </div>
-        </body>
-        </html>
-    ''')
+    return render_template('home.html', title='Home')
 
 @app.route('/about')
 def about():
-    return render_template_string('''
-        <!DOCTYPE html>
-        <html lang="en">
-        <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>About - Eskom Dx_Pricing</title>
-            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-            <style>
-                body {
-                    background-color: #f4f4f4;
-                }
-                .content {
-                    padding: 20px;
-                }
-                .navbar-nav a {
-                    color: white !important;
-                }
-            </style>
-        </head>
-        <body>
-            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                <a class="navbar-brand" href="/">Eskom Dx_Pricing</a>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link" href="/">Home</a>
-                        </li>
-                        <li class="nav-item active">
-                            <a class="nav-link" href="/about">About</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/classification-map">Classification Map</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/prediction">Prediction</a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-            <div class="container content">
-                <h1 class="mt-5">About Us</h1>
-                <p>This is the about page of Eskom Dx_Pricing.</p>
-            </div>
-        </body>
-        </html>
-    ''')
+    return render_template('about.html', title='About')
 
-@app.route('/classification-map')
+@app.route('/classification-map', methods=['GET', 'POST'])
 def classification_map():
-    return render_template_string('''
-        <!DOCTYPE html>
-        <html lang="en">
-        <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Classification Map - Eskom Dx_Pricing</title>
-            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-            <style>
-                body {
-                    background-color: #f4f4f4;
-                }
-                .content {
-                    padding: 20px;
-                }
-                .navbar-nav a {
-                    color: white !important;
-                }
-                .map-container {
-                    width: 80%;
-                    height: 500px;
-                    margin: 0 auto;
-                    border: 1px solid #ccc;
-                }
-                iframe {
-                    width: 100%;
-                    height: 100%;
-                }
-            </style>
-        </head>
-        <body>
-            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                <a class="navbar-brand" href="/">Eskom Dx_Pricing</a>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link" href="/">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/about">About</a>
-                        </li>
-                        <li class="nav-item active">
-                            <a class="nav-link" href="/classification-map">Classification Map</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/prediction">Prediction</a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-            <div class="container content">
-                <h1 class="mt-5">Classification Map</h1>
-                <div class="map-container">
-                    <iframe src="https://classify.azureedge.net/Feeders_Classification/Classification_Map.html" frameborder="0"></iframe>
-                </div>
-            </div>
-        </body>
-        </html>
-    ''')
+    if request.method == 'POST':
+        area = request.form['area']
+        # Define locations for areas in Gauteng, South Africa
+        if area.lower() == 'johannesburg':
+            location = [-26.2041, 28.0473]
+        elif area.lower() == 'pretoria':
+            location = [-25.7479, 28.2293]
+        else:
+            # Default location if the input doesn't match known areas
+            location = [-26.2041, 28.0473]  # Johannesburg as default
+
+        return render_template('map.html', location=location)
+    
+    return render_template('classification_map.html', title='Classification Map')
 
 @app.route('/prediction')
 def prediction():
-    return render_template_string('''
-        <!DOCTYPE html>
-        <html lang="en">
-        <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Prediction - Eskom Dx_Pricing</title>
-            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-            <style>
-                body {
-                    background-color: #f4f4f4;
-                }
-                .content {
-                    padding: 20px;
-                }
-                .navbar-nav a {
-                    color: white !important;
-                }
-            </style>
-        </head>
-        <body>
-            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                <a class="navbar-brand" href="/">Eskom Dx_Pricing</a>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link" href="/">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/about">About</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/classification-map">Classification Map</a>
-                        </li>
-                        <li class="nav-item active">
-                            <a class="nav-link" href="/prediction">Prediction</a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-            <div class="container content">
-                <h1 class="mt-5">Prediction</h1>
-                <p>This is the prediction page of Eskom Dx_Pricing.</p>
-            </div>
-        </body>
-        </html>
-    ''')
+    return render_template('prediction.html', title='Prediction')
 
 if __name__ == '__main__':
     app.run(debug=True)
