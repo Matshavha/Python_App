@@ -10,7 +10,7 @@ def home():
         <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Home</title>
+            <title>Eskom Dx_Pricing</title>
             <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
             <style>
                 body {
@@ -26,7 +26,7 @@ def home():
         </head>
         <body>
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                <a class="navbar-brand" href="/">Flask App</a>
+                <a class="navbar-brand" href="/">Eskom Dx_Pricing</a>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item active">
@@ -46,7 +46,7 @@ def home():
             </nav>
             <div class="container content">
                 <h1 class="mt-5">Welcome to the Home Page</h1>
-                <p>This is the home page of our Flask web application.</p>
+                <p>This is the home page of Eskom Dx_Pricing.</p>
             </div>
         </body>
         </html>
@@ -60,7 +60,7 @@ def about():
         <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>About</title>
+            <title>About - Eskom Dx_Pricing</title>
             <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
             <style>
                 body {
@@ -76,7 +76,7 @@ def about():
         </head>
         <body>
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                <a class="navbar-brand" href="/">Flask App</a>
+                <a class="navbar-brand" href="/">Eskom Dx_Pricing</a>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
@@ -96,7 +96,7 @@ def about():
             </nav>
             <div class="container content">
                 <h1 class="mt-5">About Us</h1>
-                <p>This is the about page.</p>
+                <p>This is the about page of Eskom Dx_Pricing.</p>
             </div>
         </body>
         </html>
@@ -110,7 +110,7 @@ def classification_map():
         <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Classification Map</title>
+            <title>Classification Map - Eskom Dx_Pricing</title>
             <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
             <style>
                 body {
@@ -136,7 +136,7 @@ def classification_map():
         </head>
         <body>
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                <a class="navbar-brand" href="/">Flask App</a>
+                <a class="navbar-brand" href="/">Eskom Dx_Pricing</a>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
@@ -172,7 +172,7 @@ def prediction():
         <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Prediction</title>
+            <title>Prediction - Eskom Dx_Pricing</title>
             <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
             <style>
                 body {
@@ -188,7 +188,7 @@ def prediction():
         </head>
         <body>
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                <a class="navbar-brand" href="/">Flask App</a>
+                <a class="navbar-brand" href="/">Eskom Dx_Pricing</a>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
@@ -208,7 +208,7 @@ def prediction():
             </nav>
             <div class="container content">
                 <h1 class="mt-5">Prediction</h1>
-                <p>This is the prediction page.</p>
+                <p>This is the prediction page of Eskom Dx_Pricing.</p>
             </div>
         </body>
         </html>
