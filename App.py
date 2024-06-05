@@ -1,22 +1,21 @@
-from flask import Flask, render_template
+from flask import Flask, request, jsonify
+import requests
 
 app = Flask(__name__)
 
-@app.route('/')
-def home():
-    return render_template('home.html', title='Home')
-
-@app.route('/about')
-def about():
-    return render_template('about.html', title='About')
-
-@app.route('/classification-map')
-def classification_map():
-    return render_template('classification_map.html', title='Classification Map')
-
-@app.route('/prediction')
-def prediction():
-    return render_template('prediction.html', title='Prediction')
+@app.route('/call_url', methods=['GET'])
+def call_url():
+    # The URL to call, you can replace this with your target URL
+    url = 'https://classify.azureedge.net/Feeders_Classification/Classification_Map.html'
+    
+    # Make a GET request to the specified URL
+    response = requests.get(url)
+    
+    # Return the response content and status code
+    return jsonify({
+        'status_code': response.status_code,
+        'content': response.text
+    })
 
 if __name__ == '__main__':
     app.run(debug=True)
