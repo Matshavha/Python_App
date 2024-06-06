@@ -1,17 +1,26 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <head>
-    <title>Home</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Map Display</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 </head>
 <body>
-    <nav>
-        <a href="/">Home</a>
-        <a href="/map">Map</a>
-        <a href="/about">About</a>
-        <a href="/contact">Contact</a>
-    </nav>
-    <h1>Welcome to the Home Page</h1>
-    <p>Explore our site using the navigation bar above.</p>
+    <div id="map" style="width: 100%; height: 600px;"></div>
+    <script>
+        var map = L.map('map').setView([-26.270759, 28.112268], 10);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        fetch('/geojson')
+            .then(response => response.json())
+            .then(data => {
+                L.geoJSON(data).addTo(map);
+            });
+    </script>
 </body>
 </html>
