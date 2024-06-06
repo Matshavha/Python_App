@@ -19,8 +19,36 @@
         fetch('/geojson')
             .then(response => response.json())
             .then(data => {
-                L.geoJSON(data).addTo(map);
+                L.geoJSON(data.data, {
+                    style: function (feature) {
+                        return {color: 'blue'};
+                    },
+                    onEachFeature: function (feature, layer) {
+                        layer.bindPopup("CNC: " + feature.properties.CNC + "<br>" +
+                                        "PPU: " + feature.properties.PPU + "<br>" +
+                                        "SPU: " + feature.properties.SPU + "<br>" +
+                                        "LPU: " + feature.properties.LPU + "<br>" +
+                                        "Locality: " + feature.properties.locality + "<br>" +
+                                        "Urban: " + (feature.properties.urban ? 'Yes' : 'No'));
+                    }
+                }).addTo(map);
+
+                L.geoJSON(data.feeders, {
+                    style: function (feature) {
+                        return {color: 'red'};
+                    },
+                    onEachFeature: function (feature, layer) {
+                        layer.bindPopup("Feeder ID: " + feature.properties.parent__id + "<br>" +
+                                        "Total Urban: " + feature.properties.total_urban + "<br>" +
+                                        "Total Rural: " + feature.properties.total_rural + "<br>" +
+                                        "Total Customers: " + feature.properties.total_customers + "<br>" +
+                                        "Total Transformers: " + feature.properties.total_transformers + "<br>" +
+                                        "Percentage Urban: " + feature.properties.percentage_urban + "%" + "<br>" +
+                                        "Percentage Rural: " + feature.properties.percentage_rural + "%");
+                    }
+                }).addTo(map);
             });
     </script>
 </body>
 </html>
+
