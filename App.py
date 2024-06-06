@@ -10,7 +10,7 @@ def index():
 
 @app.route('/geojson')
 def geojson():
-    return send_from_directory('static', 'data_Classification_Map.geojson.gz')
+    return send_from_directory('static', 'data_Classification_Map.json.gz')
 
 if __name__ == '__main__':
     app.run(debug=True)
