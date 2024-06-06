@@ -1,6 +1,6 @@
 from flask import Flask, render_template, jsonify
-import gzip
 import json
+import gzip
 
 app = Flask(__name__)
 
@@ -16,4 +16,3 @@ def geojson():
 
 if __name__ == '__main__':
     app.run(debug=True)
-
