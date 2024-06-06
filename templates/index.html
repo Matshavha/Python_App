@@ -33,6 +33,9 @@
                         fillOpacity: 0.5
                     }).addTo(map).bindPopup("Coordinates: " + item.coordinates.join(', '));
                 });
+            })
+            .catch(error => {
+                console.error("Error loading data:", error);
             });
     </script>
 </body>
