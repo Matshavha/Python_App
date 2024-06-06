@@ -1,4 +1,4 @@
-from flask import Flask, render_template, jsonify
+from flask import Flask, render_template, send_from_directory
 import json
 import gzip
 
@@ -10,9 +10,7 @@ def index():
 
 @app.route('/geojson')
 def geojson():
-    with gzip.open('static/Classification_Map.geojson.gz', 'rt', encoding='utf-8') as f:
-        geojson_data = json.load(f)
-    return jsonify(geojson_data)
+    return send_from_directory('static', 'data_Classification_Map.geojson.gz')
 
 if __name__ == '__main__':
     app.run(debug=True)
