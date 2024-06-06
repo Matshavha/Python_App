@@ -10,7 +10,7 @@ def index():
 
 @app.route('/geojson')
 def geojson():
-    with gzip.open('static/voronoi_Classification_Map.geojson.gz', 'rt', encoding='utf-8') as f:
+    with gzip.open('static/Classification_Map.geojson.gz', 'rt', encoding='utf-8') as f:
         geojson_data = json.load(f)
     return jsonify(geojson_data)
 
