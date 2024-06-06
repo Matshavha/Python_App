@@ -21,7 +21,19 @@
             .then(data => {
                 L.geoJSON(data, {
                     style: function (feature) {
-                        return {color: 'blue'};
+                        if (feature.geometry.type === "Polygon") {
+                            return {color: 'blue'};
+                        }
+                    },
+                    pointToLayer: function (feature, latlng) {
+                        if (feature.geometry.type === "Point") {
+                            return L.circleMarker(latlng, {
+                                radius: 5,
+                                color: 'red',
+                                fillColor: '#f03',
+                                fillOpacity: 0.5
+                            }).bindPopup("Coordinates: " + latlng.toString());
+                        }
                     }
                 }).addTo(map);
             });
