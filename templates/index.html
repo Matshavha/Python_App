@@ -19,39 +19,14 @@
         fetch('/geojson')
             .then(response => response.json())
             .then(data => {
-                // Draw polygons from 'voronoi_cell'
-                L.geoJSON(data.data, {
+                L.geoJSON(data, {
                     style: function (feature) {
                         return {color: 'blue'};
-                    },
-                    onEachFeature: function (feature, layer) {
-                        if (feature.geometry.type === "Polygon") {
-                            layer.bindPopup("CNC: " + feature.properties.CNC + "<br>" +
-                                            "PPU: " + feature.properties.PPU + "<br>" +
-                                            "SPU: " + feature.properties.SPU + "<br>" +
-                                            "LPU: " + feature.properties.LPU + "<br>" +
-                                            "Coordinates: " + feature.properties.coordinates + "<br>" +
-                                            "Parent ID: " + feature.properties.parent__id + "<br>" +
-                                            "Primary Voltage: " + feature.properties.primary_vo_clean + "<br>" +
-                                            "Urban: " + (feature.properties.urban ? 'Yes' : 'No'));
-                        }
                     }
                 }).addTo(map);
-
-                // Draw points from 'coordinates'
-                data.data.features.forEach(function(feature) {
-                    if (feature.properties.coordinates) {
-                        var coordinates = JSON.parse(feature.properties.coordinates);
-                        L.circleMarker([coordinates[1], coordinates[0]], {
-                            radius: 5,
-                            color: 'red',
-                            fillColor: '#f03',
-                            fillOpacity: 0.5
-                        }).addTo(map).bindPopup("Coordinates: " + coordinates.join(', '));
-                    }
-                });
             });
     </script>
 </body>
 </html>
+
 
