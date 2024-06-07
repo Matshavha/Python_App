@@ -1,50 +1,10 @@
-from flask import Flask, render_template_string
-import requests
-import gzip
-import io
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
 @app.route('/')
-def home():
-    url = 'https://classify.azureedge.net/Feeders_Classification/Classification_Map.html.gz'
-    response = requests.get(url)
-
-    compressed_content = io.BytesIO(response.content)
-    with gzip.GzipFile(fileobj=compressed_content, mode='rb') as f:
-        html_content = f.read().decode('utf-8')
-
-    return render_template_string("""
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Map Viewer</title>
-        <style>
-            body, html {
-                height: 100%;
-                margin: 0;
-            }
-            .map-container {
-                width: 100%;
-                height: 80%;
-                margin: auto;
-                position: absolute;
-                top: 10%;
-                left: 0;
-                right: 0;
-                bottom: 0;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="map-container">
-            {{ map_content|safe }}
-        </div>
-    </body>
-    </html>
-    """, map_content=html_content)
+def index():
+    return render_template('index.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
