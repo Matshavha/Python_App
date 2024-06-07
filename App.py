@@ -7,16 +7,13 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    # Fetch the compressed HTML map from the CDN
     url = 'https://classify.azureedge.net/Feeders_Classification/Classification_Map.html.gz'
     response = requests.get(url)
 
-    # Decompress the HTML content
     compressed_content = io.BytesIO(response.content)
     with gzip.GzipFile(fileobj=compressed_content, mode='rb') as f:
         html_content = f.read().decode('utf-8')
-    
-    # Use render_template_string instead of render_template
+
     return render_template_string("""
     <!DOCTYPE html>
     <html lang="en">
