@@ -4,9 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Classification Map</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: Arial, sans-serif;
+        }
+        .map-container {
+            width: 80%;
+            height: 80%;
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
 </head>
 <body>
-    <h1>Classification Map</h1>
-    <iframe src="https://classify.azureedge.net/Feeders_Classification/Classification_Map.html" width="100%" height="600px"></iframe>
+    <div class="map-container">
+        <iframe src="https://classify.azureedge.net/Feeders_Classification/Classification_Map.html"></iframe>
+    </div>
 </body>
 </html>
+
