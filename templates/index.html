@@ -3,27 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Map Viewer</title>
+    <title>Map Display</title>
     <style>
-        body, html {
-            height: 100%;
-            margin: 0;
-        }
         .map-container {
+            width: 80%;
+            height: 80vh;
+            margin: 0 auto;
+        }
+        iframe {
             width: 100%;
-            height: 80%;
-            margin: auto;
-            position: absolute;
-            top: 10%;
-            left: 0;
-            right: 0;
-            bottom: 0;
+            height: 100%;
+            border: none;
         }
     </style>
 </head>
 <body>
     <div class="map-container">
-        {{ map_content | safe }}
+        <iframe src="https://classify.azureedge.net/Feeders_Classification/Classification_Map.html"></iframe>
     </div>
 </body>
 </html>
