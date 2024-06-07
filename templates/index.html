@@ -1,42 +1,30 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Map Display</title>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <title>Map Viewer</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+        }
+        .map-container {
+            width: 100%;
+            height: 80%;
+            margin: auto;
+            position: absolute;
+            top: 10%;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+    </style>
 </head>
 <body>
-    <div id="map" style="width: 100%; height: 600px;"></div>
-    <script>
-        var map = L.map('map').setView([-26.270759, 28.112268], 10);
-
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        }).addTo(map);
-
-        fetch('/json')
-            .then(response => response.json())
-            .then(data => {
-                data.forEach(item => {
-                    // Draw polygons from 'voronoi_cell'
-                    L.geoJSON(item.voronoi_cell, {
-                        style: { color: 'blue' }
-                    }).addTo(map);
-
-                    // Draw points from 'coordinates'
-                    L.circleMarker([item.coordinates[1], item.coordinates[0]], {
-                        radius: 5,
-                        color: 'red',
-                        fillColor: '#f03',
-                        fillOpacity: 0.5
-                    }).addTo(map).bindPopup("Coordinates: " + item.coordinates.join(', '));
-                });
-            })
-            .catch(error => {
-                console.error("Error loading data:", error);
-            });
-    </script>
+    <div class="map-container">
+        {{ map_content | safe }}
+    </div>
 </body>
 </html>
+
