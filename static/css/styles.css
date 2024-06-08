@@ -15,8 +15,8 @@ body, html {
 
 .navbar img {
     height: 40px; /* Set a maximum height */
-    width: auto;  /* Maintain aspect ratio */
-    max-width: 10px; /* Set a maximum width to avoid cutting */
+    width: 200px;  /* Maintain aspect ratio */
+    max-width: 200px; /* Set a maximum width to avoid cutting */
     margin: 0 20px; /* Add margin to the sides */
 }
 
