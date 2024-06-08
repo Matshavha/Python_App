@@ -12,9 +12,14 @@
         .navbar {
             background-color: #333;
             overflow: hidden;
+            display: flex;
+            align-items: center;
+        }
+        .navbar img {
+            height: 40px;
+            margin: 5px 20px;
         }
         .navbar a {
-            float: left;
             display: block;
             color: white;
             text-align: center;
@@ -32,6 +37,7 @@
 </head>
 <body>
     <div class="navbar">
+        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo">
         <a href="/">Home</a>
         <a href="/classification-map">Classification Map</a>
         <a href="/statistics">Statistics</a>
