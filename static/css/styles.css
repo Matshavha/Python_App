@@ -2,6 +2,7 @@
 
 body, html {
     margin: 0;
+    height: 100%; /* Ensure the body and html take the full height */
     font-family: Arial, sans-serif;
 }
 
@@ -38,8 +39,8 @@ body, html {
 }
 
 .map-container {
-    width: 80%;
-    height: 80%;
+    width: 80vw;  /* 80% of the viewport width */
+    height: 80vh; /* 80% of the viewport height */
     margin: auto;
     border: 1px solid #ccc;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -53,4 +54,3 @@ iframe {
     height: 100%;
     border: none;
 }
-
