@@ -14,9 +14,10 @@ body, html {
 }
 
 .navbar img {
-    height: 50px; /* Increase the height */
+    height: 40px; /* Set a maximum height */
+    width: auto;  /* Maintain aspect ratio */
+    max-width: 200px; /* Set a maximum width to avoid cutting */
     margin: 0 20px; /* Add margin to the sides */
-    width: auto; /* Maintain aspect ratio */
 }
 
 .navbar a {
@@ -52,3 +53,4 @@ iframe {
     height: 100%;
     border: none;
 }
+
